@@ -1,16 +1,26 @@
 import React from 'react';
-import Homepage from "./components/homepage"
-import MapView from './components/map';
-import Review from './components/review';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Homepage from "./Components/homepage"
+import MapView from './Components/map';
+import SiteReview from './Components/review';
+import SearchBar from './Components/searchbar';
+
 
 
 function App() {
   return (
     <div className="App">
+
       <Homepage />
-      <MapView />
-      <Review />
-      
+  
+
+      <Router>
+        <Route exact path="/" component={Homepage} />
+        <Route path="/MapView" component={MapView} />
+        <Route path="/SiteReview" component={SiteReview} />
+        <Route path="/SearchBar" component={SearchBar} />
+      </Router>
     </div>
   );
 }

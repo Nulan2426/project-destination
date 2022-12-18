@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useState } from 'react';
 
 // Define a Review component that displays a form for users to submit their reviews and ratings
-const Review = ({ destination, onSubmit }) => {
+const SiteReview = ({ destination, onSubmit }) => {
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState('');
 
@@ -45,12 +45,12 @@ const Review = ({ destination, onSubmit }) => {
                     ))}
                 </RatingButtons>
                 <CommentLabel>Comment:</CommentLabel>
-                <CommentInput
+                <CommentInput>
                     type="text"
                     placeholder="Enter your comment"
                     value={comment}
                     onChange={(event) => setComment(event.target.value)}
-                />
+                </CommentInput>
                 <SubmitButton type="submit">Submit</SubmitButton>
             </Form>
         </Container>
@@ -96,4 +96,20 @@ const RatingButton = styled.button`
   font-weight: bold;
 `;
 
-export default Review
+const CommentLabel = styled.label`
+  font-size: 16px;
+  color: #333;
+  margin: 0 0 10px 0;
+`;
+
+const CommentInput = styled.div`
+  display: flex;
+`;
+
+const SubmitButton = styled.button`
+  padding: 8px;
+  font-size: 16px;
+  font-weight: bold;
+`;
+
+export default SiteReview
